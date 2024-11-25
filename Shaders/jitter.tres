@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://lg3y3n2n4u3b"]
+
+[ext_resource type="Shader" path="res://Shaders/jitter.gdshader" id="1_3myei"]
+
+[resource]
+shader = ExtResource("1_3myei")
+shader_parameter/offset = 0.75
+shader_parameter/time_inf = 4.5
+shader_parameter/y_div = 1.7

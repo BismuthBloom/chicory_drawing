@@ -1,0 +1,144 @@
+[gd_scene load_steps=14 format=3 uid="uid://87co0oa0ophs"]
+
+[ext_resource type="Script" path="res://Scripts/brush_menu.gd" id="1_j1axo"]
+[ext_resource type="Texture2D" uid="uid://clwd3rtky8po1" path="res://Sprites/Icons/c1.png" id="1_xx0qu"]
+[ext_resource type="Texture2D" uid="uid://bplm8ggv2ddpw" path="res://Sprites/Icons/c2.png" id="2_bmfsc"]
+[ext_resource type="Texture2D" uid="uid://crynnyhruuyio" path="res://Sprites/Icons/big.png" id="2_qo326"]
+[ext_resource type="Texture2D" uid="uid://dk2snpsbbw40k" path="res://Sprites/Icons/medium.png" id="3_h5dod"]
+[ext_resource type="Texture2D" uid="uid://cssq7vlhurmn" path="res://Sprites/Icons/c3.png" id="3_nbwtg"]
+[ext_resource type="Texture2D" uid="uid://cc1hpye8tstr4" path="res://Sprites/Icons/small.png" id="4_3x6gc"]
+[ext_resource type="Texture2D" uid="uid://okvcc1qofyg2" path="res://Sprites/Icons/c4.png" id="4_sapa4"]
+[ext_resource type="Texture2D" uid="uid://dr4mnf0ips2lv" path="res://Sprites/Icons/100.png" id="5_ehfjw"]
+[ext_resource type="Texture2D" uid="uid://cg42uuagfymxd" path="res://Sprites/Icons/hori.png" id="6_nr7y8"]
+[ext_resource type="Texture2D" uid="uid://c67etdn3m8dsj" path="res://Sprites/Icons/vert.png" id="7_hum88"]
+[ext_resource type="Texture2D" uid="uid://bar8yvlxygxyo" path="res://Sprites/Icons/50.png" id="8_0rxb1"]
+[ext_resource type="Texture2D" uid="uid://bhndjhanyllrb" path="res://Sprites/Icons/25.png" id="9_6btml"]
+
+[node name="BrushMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j1axo")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 1920.0
+offset_bottom = 1016.0
+alignment = 1
+
+[node name="BrushSize" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="SizeLabel" type="Label" parent="Panel/HBoxContainer/BrushSize"]
+layout_mode = 2
+text = "
+Brush Sizes
+                                          "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="big" type="Button" parent="Panel/HBoxContainer/BrushSize"]
+layout_mode = 2
+text = "Big
+"
+icon = ExtResource("2_qo326")
+
+[node name="medium" type="Button" parent="Panel/HBoxContainer/BrushSize"]
+layout_mode = 2
+text = "Medium"
+icon = ExtResource("3_h5dod")
+
+[node name="small" type="Button" parent="Panel/HBoxContainer/BrushSize"]
+layout_mode = 2
+text = "Small"
+icon = ExtResource("4_3x6gc")
+
+[node name="Screentone" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="ToneLabel" type="Label" parent="Panel/HBoxContainer/Screentone"]
+layout_mode = 2
+text = "
+Screentone
+                                          "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="100percent" type="Button" parent="Panel/HBoxContainer/Screentone"]
+layout_mode = 2
+text = "None"
+icon = ExtResource("5_ehfjw")
+
+[node name="horizontal" type="Button" parent="Panel/HBoxContainer/Screentone"]
+layout_mode = 2
+text = "Horizontal Lines"
+icon = ExtResource("6_nr7y8")
+
+[node name="vertical" type="Button" parent="Panel/HBoxContainer/Screentone"]
+layout_mode = 2
+text = "Vertical Lines"
+icon = ExtResource("7_hum88")
+
+[node name="50percent" type="Button" parent="Panel/HBoxContainer/Screentone"]
+layout_mode = 2
+text = "50%"
+icon = ExtResource("8_0rxb1")
+
+[node name="25percent" type="Button" parent="Panel/HBoxContainer/Screentone"]
+layout_mode = 2
+text = "25%"
+icon = ExtResource("9_6btml")
+
+[node name="Color" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorLabel" type="Label" parent="Panel/HBoxContainer/Color"]
+layout_mode = 2
+text = "
+Color
+                                          "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="c1" type="Button" parent="Panel/HBoxContainer/Color"]
+layout_mode = 2
+text = "Color 1"
+icon = ExtResource("1_xx0qu")
+
+[node name="c2" type="Button" parent="Panel/HBoxContainer/Color"]
+layout_mode = 2
+text = "Color 2"
+icon = ExtResource("2_bmfsc")
+
+[node name="c3" type="Button" parent="Panel/HBoxContainer/Color"]
+layout_mode = 2
+text = "Color 3"
+icon = ExtResource("3_nbwtg")
+
+[node name="c4" type="Button" parent="Panel/HBoxContainer/Color"]
+layout_mode = 2
+text = "Color 4"
+icon = ExtResource("4_sapa4")
+
+[connection signal="pressed" from="Panel/HBoxContainer/BrushSize/big" to="." method="_on_big_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/BrushSize/medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/BrushSize/small" to="." method="_on_small_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Screentone/100percent" to="." method="_on_100percent_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Screentone/horizontal" to="." method="_on_horizontal_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Screentone/vertical" to="." method="_on_vertical_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Screentone/50percent" to="." method="_on_50percent_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Screentone/25percent" to="." method="_on_25percent_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Color/c1" to="." method="_on_c1_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Color/c2" to="." method="_on_c2_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Color/c3" to="." method="_on_c3_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Color/c4" to="." method="_on_c4_pressed"]
